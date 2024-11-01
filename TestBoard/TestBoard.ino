@@ -33,10 +33,10 @@ const int Start = 12;
 const int Select = 13;
 // Setting up GBA timer
 // Time in milliseconds
-uint64_t currentTime = 0;
-unsigned long previousTime = 0;
-unsigned long lastCheckTime = 0;
-unsigned long checkPercentage = 0;
+unsigned long long currentTime = 0;
+unsigned long long previousTime = 0;
+unsigned long long lastCheckTime = 0;
+unsigned long long checkPercentage = 0;
 bool printed = false;
 
 // State = 0 waiting for timer, state = 1 counting
@@ -45,10 +45,12 @@ int state = 0;
 bool reset = true;
 
 // Variabile per memorizzare il valore corrente
-long microsRn = 0;
-long value = 0;
-long maxValue = 2147483647;  // valore massimo per long long int
-const int minValue = 0;
+unsigned long timeStart = 0;
+unsigned long long value = 0;
+const unsigned long maxValue = 4294967295;  // valore massimo per long long int
+const unsigned long minValue = 0;
+int percentage = 0;
+int oldPercentage = 0;
 
 
 void setup() {
@@ -57,12 +59,28 @@ void setup() {
   // Setting brightness pin control
   pinMode(brightnessPwmPin, OUTPUT);
   pinMode(button, INPUT);
+  // Setting up GBA pins
+  // Pin A
+  pinMode(A, OUTPUT);
+  digitalWrite(A, LOW);
+  // Pin B
+  pinMode(B, OUTPUT);
+  digitalWrite(B, LOW);
+  // Pin Start
+  pinMode(Start, OUTPUT);
+  digitalWrite(Start, LOW);
+  // Pin Select
+  pinMode(Select, OUTPUT);
+  digitalWrite(Select, LOW);
+  // Pin potentiometer
+  pinMode(potPin, INPUT);
   analogWrite(brightnessPwmPin, brightnessValues[brightnessIndex]);
 
   // Initializing LCD for brightness setting
   clearAndWriteFirstRow("Brightness:");
   clearAndWriteSecondRow(brightnessIndex);
   bool setBrightness = false;
+  bool setTimer = false;
   // Variable to measure time since start pressing
   unsigned long pressStartTime = 0;
 
@@ -103,31 +121,11 @@ void setup() {
   // Preparing LCD
   clearAndWriteFirstRow("Insert Timer:");
   clearSecondRow();
-  // Setting up GBA pins
-  // Pin A
-  pinMode(A, OUTPUT);
-  digitalWrite(A, LOW);
-  // Pin B
-  pinMode(B, OUTPUT);
-  digitalWrite(B, LOW);
-  // Pin Start
-  pinMode(Start, OUTPUT);
-  digitalWrite(Start, LOW);
-  // Pin Select
-  pinMode(Select, OUTPUT);
-  digitalWrite(Select, LOW);
-  // Pin potentiometer
-  pinMode(potPin, INPUT);
-}
-
-void loop() {
-  // Setting timer
-  if (state == 0) {
+  while (!setTimer) {
     buttonState = digitalRead(button);
     if (buttonState == HIGH) {
-      state = 1;
+      setTimer = true;
     } else {
-
       // Read potentiometer
       int potValue = analogRead(potPin);
 
@@ -173,54 +171,44 @@ void loop() {
         clearAndWriteSecondRow(value);
       }
     }
-  } else if (state == 1) {
-    if (reset) {
-      clearAndWriteFirstRow("Resetting");
-      reset = !reset;
-      // Wait to stabilize and get ready
-      unsigned long startTime = millis();
-      while (millis() - startTime < 5000UL) {
-        // Wait 5 seconds without using delay()
-      }
+  }
+  clearAndWriteFirstRow("Resetting...");
+  unsigned long startTime = millis();
+  while (millis() - startTime < 5000UL) {
+    // Wait 5 seconds without using delay()
+  }
+  digitalWrite(A, HIGH);
+  digitalWrite(B, HIGH);
+  digitalWrite(Start, HIGH);
+  digitalWrite(Select, HIGH);
+  delayMicroseconds(15000);
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(Start, LOW);
+  digitalWrite(Select, LOW);
+  timeStart = micros();
+  checkPercentage = timeStart;
+  value = value * 1000;
+  clearAndWriteFirstRow("Waiting...");
+}
+
+void loop() {
+  currentTime = micros();
+  if ((currentTime - timeStart) >= value) { 
       digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(Start, HIGH);
-      digitalWrite(Select, HIGH);
       delayMicroseconds(15000);
       digitalWrite(A, LOW);
-      digitalWrite(B, LOW);
-      digitalWrite(Start, LOW);
-      digitalWrite(Select, LOW);
-      microsRn = micros();
-      value = microsRn + (value * 1000UL);
+      clearAndWriteFirstRow("Done!");
       clearSecondRow();
-      clearAndWriteFirstRow("Waiting");
-    } else {
-      currentTime = micros();  // Use micros() for greater precision
-      // Check if the specified time has passed for the next frame
-      if (currentTime >= value) { 
-        digitalWrite(A, HIGH);
-        delayMicroseconds(15000);
-        digitalWrite(A, LOW);
-        reset = true;
-        state = 0;
-        value = 0;
-        clearAndWriteFirstRow("Insert Timer");
-        clearAndWriteSecondRow(value);
-      }
-      // Calculate how many blocks to display (on 16 columns)
-      int progressBlocks = map(currentTime, microsRn, value, 0, 16);
-
-      // Update the second row with the progress bar
-      lcd.setCursor(0, 1); // Go to the second row
-      for (int i = 0; i < 16; i++) {
-        if (i < progressBlocks) {
-          lcd.write(255); // Full block
-        } else {
-          lcd.write(' '); // Empty space
-        }
-      }
+    while(1){
     }
+    }
+  if ((value - (currentTime - timeStart)) > 10000000UL){
+    if (currentTime - checkPercentage > 5000000UL) {
+      percentage = (((currentTime - timeStart) * 100) / value);
+      clearAndWriteSecondRow(String(percentage)+"%");
+      checkPercentage = micros();
+    }  
   }
 }
 
