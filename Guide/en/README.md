@@ -45,46 +45,70 @@ The system must be restarted every time after the timer because I've used the `m
 This document does NOT cover RNG manipulation techniques on GBA but presents a system to automate the RNG manipulation process on GBA.  
 The goal is to create a system usable without a PC. Refer to the accompanying video for additional step-by-step details.
 
-# Modifying the GBA 🛠️
+Here is the translation in English:
+
+# Requirements ✅
+* Soldering iron
+* Hot glue
+* A GBA
+* 3D printer
+* [Arduino Nano](https://www.amazon.it/dp/B0CWH4P152)
+* 4 [optocouplers](https://www.amazon.it/dp/B07X46SYQT)
+* [220, 1k, 10k ohm resistors](https://www.amazon.it/dp/B0B8CQ9FYC)
+* [Breadboard](https://www.amazon.it/dp/B078HV79XX)
+* [100 microF capacitor](https://amzn.eu/d/5ATUCtE)
+* [Small electric wires](https://amzn.eu/d/4wbI2sM)
+* [Potentiometer](https://www.amazon.it/dp/B09LLVJ4WK)
+* [Buttons](https://www.amazon.it/dp/B082DBBPGC)
+* [Switches](https://www.amazon.it/dp/B0BTM3WQXN)
+* [USB-C connectors](https://www.amazon.it/dp/B0DFPV1V35)
+* [USB-C plug](https://www.amazon.it/dp/B0D5PVDJLX)
+* [16x02 LCD](https://www.amazon.it/dp/B082166FCL)
+* [5-pin connector](https://www.amazon.it/dp/B0C9C2NSYC)
+* [Heat shrink tubing](https://amzn.eu/d/3FiaBTP)
+
+# Guide 🧭
+## Modifying the GBA 🛠️
 In this example, a Game Boy Advance SP is used.
 
-## Step One 1️⃣
+### Step One 1️⃣
 Solder thin wires onto the pins highlighted in the image. (Video for details)
 <img src="../../Images/gbaSpMotherboard.png" alt="gbamother" width="500">
 
-## Step Two 2️⃣
+### Step Two 2️⃣
 Drill the shell.
 You can use a pre-modified shell with a hole on the right side.
 <img src="../../Images/shell.png" alt="shell" width="500">
 The goal is to guide the newly soldered wires out of the shell. Choose the best spot according to your needs. (Video for details)
 
-## Step Three 3️⃣
+### Step Three 3️⃣
 Reassemble the GBA SP. (Video for details)
 <img src="../../Images/reassembleGba1.png" alt="reassemble1" width="500">
 <img src="../../Images/reassembleGba2.png" alt="reassemble2" width="500">
 
-# Building the Circuit ⚡
+## Building the Circuit ⚡
 Follow the wiring diagram to create the circuit. (Video for details)
 <img src="../../Images/circuit.png" alt="circuit" width="500">
 A USB-C extension with a button is recommended to interrupt power, allowing Arduino to be powered and reprogrammed even after assembly. (Video for details)
 Many portable batteries stop charging if the load is too low, so a resistor in parallel to Arduino is added to enable power from portable batteries. There are more efficient solutions, but this is the simplest and most practical. (Video for details)
 
-## Circuit without LCD Display, Potentiometer, and Button ⚡👀
+### Circuit without LCD Display, Potentiometer, and Button ⚡👀
 Use the `NoDisplay.ino` code with this wiring diagram.
 <img src="../../Images/smallCircuit.png" alt="circuit" width="500">
 
-# Printing and Assembling the Enclosure 📐
+## Printing and Assembling the Enclosure 📐
 This was my first experience designing and printing an enclosure for a circuit, and there is certainly room for more compactness and optimization.
 [This enclosure](../../3dFiles/) is designed for the complete version of the circuit.
 Print the 3D file, choose points for drilling holes for the button, input USB-C port, and GBA connector.
 Assemble the circuit in the enclosure. (Video for details)
 <img src="../../Images/finalCircuit.png" alt="circuit" width="500">
 There is a section under the cover where a portable battery can be placed. This choice allows the system to be used without a PC or electrical outlet.
+<img src="../../Images/batterySlide.gif" alt="circuit" width="500">
 
-# System Testing 🔬
+## System Testing 🔬
 A system test is available here.
 
-# Physical Error Evaluation 📊
+## Physical Error Evaluation 📊
 After multiple tests, the maximum number of attempts to calculate physical error in delay was found to be 4. In most cases, no more than 3 attempts were needed.
 This error arises from the way Arduino measures time: its ceramic chip is sensitive to temperature changes, causing slight precision fluctuations.
 A possible solution could be the use of dedicated timer modules, less affected by temperature.
