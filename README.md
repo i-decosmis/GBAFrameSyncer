@@ -1,8 +1,12 @@
 # GBAFrameSyncer
 
 <div align="center">
-    <img src="Images/logo.png" alt="Logo" width="350">
+<img src="Images/logo.png" alt="Logo" width="350">
+
+![Python](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white)
 </div>
+
+
 
 # Introduction 🎮⏳
 This project aims to automate the RNG manipulation process, commonly used on consoles like the Game Boy Advance. This technique, for instance, is used to [obtain shiny Pokémon in games like Pokémon Emerald](https://www.youtube.com/watch?v=pciQkasUJ7g).

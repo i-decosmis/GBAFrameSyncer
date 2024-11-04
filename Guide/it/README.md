@@ -4,6 +4,12 @@ Questa guida è fornita a scopo informativo e redatta con la massima cura possib
 Seguire questa guida modifica in modo irreversibile la shell.
 
 # Guida all'utilizzo del sistema 📝
+## Caricare il codice 🔄
+* Aprire Arduino IDE.
+* Caricare il codice scelto tra le versioni disponibili su Arduino (approfondimenti piú in basso).
+
+
+## Inizio 🚀
 * Alimentare il sistema tramite la porta USB-C.
 * Collegare il connettore del sistema a quello installato sul GBA.
 * Accendere il sistema.

@@ -4,6 +4,11 @@ This guide is provided for informational purposes and has been compiled with the
 Following this guide will irreversibly modify the shell.
 
 # System Usage Guide 📝
+## Upload the Code 🔄
+* Open the Arduino IDE.
+* Upload the selected code from the available versions on Arduino (further details below).
+
+## Start 🚀
 * Power the system through the USB-C port.
 * Connect the system connector to the one installed on the GBA.
 * Turn on the system.
