@@ -75,7 +75,7 @@ Here is the translation in English:
 # Guide 🧭
 ## Modifying the GBA 🛠️
 In this example, a Game Boy Advance SP is used.
-I recommend following the [video](https://www.youtube.com/watch?v=Go9e5wqC74Q) for all the details and using this guide for code references or for an overview of the project.
+I recommend following the [video](https://www.youtube.com/watch?v=LYbvFizmgOc) for all the details and using this guide for code references or for an overview of the project.
 
 ### Step One 1️⃣
 Solder thin wires onto the pins highlighted in the image. [Video for details](https://youtu.be/LYbvFizmgOc?si=4nlweEES0AOSoRyo&t=297)
