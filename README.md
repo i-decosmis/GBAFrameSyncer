@@ -22,5 +22,5 @@ Attualmente, il problema principale di questo metodo è che l'utente deve premer
 
 Con il sistema proposto, modificheremo fisicamente la console per consentire ad Arduino di gestire automaticamente gli input sul Game Boy Advance, selezionando con precisione il frame desiderato in base a un timer preimpostato.
 
-- [English version](guide/en/README.md)
-- [Versione italiana](guide/it/README.md)
+- [English version](Guide/en/README.md)
+- [Versione italiana](Guide/it/README.md)
