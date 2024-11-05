@@ -79,27 +79,35 @@ Si consiglia di seguire il [video](https://www.youtube.com/watch?v=Go9e5wqC74Q) 
 
 ### Primo Passo 1️⃣
 Saldare dei fili sottili sui pin evidenziati nell'immagine. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=0ailfBb1nve0NTEq&t=297)
+
 <img src="../../Images/gbaSpMotherboard.png" alt="gbamother" width="500">
 
 ### Secondo Passo 2️⃣
 Forare la shell.
 È possibile utilizzare una shell già modificata, con un foro sul lato destro.
+
 <img src="../../Images/shell.png" alt="shell" width="500">
+
 L'obiettivo è far uscire i fili appena saldati dalla shell. È possibile scegliere il punto migliore in base alle proprie esigenze. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=EwM6Wy2F0S_5Iixp&t=343)
 
 ### Terzo Passo 3️⃣
 Riassemblare il GBA SP. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=ZEf_0g8SJ7sQub_D&t=473)
+
 <img src="../../Images/reassembleGba1.png" alt="reassemble1" width="500">
+
 <img src="../../Images/reassembleGba2.png" alt="reassemble2" width="500">
 
 ## Creazione del circuito ⚡
 Seguire lo schema elettrico per creare il circuito. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=ReuIE5ckI4RUfrOY&t=811)
+
 <img src="../../Images/circuit.png" alt="circuit" width="500">
+
 È consigliato l'uso di un'estensione USB-C con un pulsante per interrompere l'alimentazione, permettendo di alimentare e riprogrammare Arduino anche dopo l'assemblaggio. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=RNg4reDLDHr8Mhwt&t=1474)
 Molte batterie portatili smettono di caricare se il carico è troppo basso; per questo motivo è inserita una resistenza in parallelo ad Arduino, consentendo l’alimentazione anche da batterie portatili. Esistono soluzioni più efficienti, ma questa è risultata la più immediata e pratica. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=IZFsZYNZBOl73R__&t=1535)
 
 ### Circuito senza display LCD, potenziometro e pulsante ⚡👀
 Utilizzare il codice `NoDisplay.ino` con questo schema.
+
 <img src="../../Images/smallCircuit.png" alt="circuit" width="500">
 
 ## Stampa e assemblaggio della scocca 📐
@@ -107,8 +115,11 @@ Questa è stata la mia prima esperienza nella progettazione e stampa di una scoc
 [Questa scocca](../../3dFiles/) è progettata per la versione completa del circuito.
 Stampare il file 3D, scegliere i punti in cui praticare i fori per il pulsante, la presa USB-C di ingresso e il connettore per il GBA.
 Assemblare il circuito nella scocca. [Video per dettagli](https://youtu.be/Go9e5wqC74Q?si=8puFOmgHlYpe24ta&t=1650)
+
 <img src="../../Images/finalCircuit.png" alt="circuit" width="500">
+
 Sotto il coperchio è presente una sezione in cui è possibile inserire una batteria portatile. Questa scelta consente di utilizzare il sistema senza PC o presa elettrica.
+
 <img src="../../Images/batterySlide.gif" alt="circuit" width="500">
 
 ## Test del sistema 🔬
