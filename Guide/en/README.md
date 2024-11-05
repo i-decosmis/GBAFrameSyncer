@@ -75,27 +75,28 @@ Here is the translation in English:
 # Guide 🧭
 ## Modifying the GBA 🛠️
 In this example, a Game Boy Advance SP is used.
+I recommend following the [video](https://www.youtube.com/watch?v=Go9e5wqC74Q) for all the details and using this guide for code references or for an overview of the project.
 
 ### Step One 1️⃣
-Solder thin wires onto the pins highlighted in the image. (Video for details)
+Solder thin wires onto the pins highlighted in the image. [Video for details](https://youtu.be/LYbvFizmgOc?si=4nlweEES0AOSoRyo&t=297)
 <img src="../../Images/gbaSpMotherboard.png" alt="gbamother" width="500">
 
 ### Step Two 2️⃣
 Drill the shell.
 You can use a pre-modified shell with a hole on the right side.
 <img src="../../Images/shell.png" alt="shell" width="500">
-The goal is to guide the newly soldered wires out of the shell. Choose the best spot according to your needs. (Video for details)
+The goal is to guide the newly soldered wires out of the shell. Choose the best spot according to your needs. [Video for details](https://youtu.be/LYbvFizmgOc?si=U2tAdF9u9yge6Rqz&t=344)
 
 ### Step Three 3️⃣
-Reassemble the GBA SP. (Video for details)
+Reassemble the GBA SP. [Video for details](https://youtu.be/LYbvFizmgOc?si=co-ZYWx3jPB3q41W&t=473)
 <img src="../../Images/reassembleGba1.png" alt="reassemble1" width="500">
 <img src="../../Images/reassembleGba2.png" alt="reassemble2" width="500">
 
 ## Building the Circuit ⚡
-Follow the wiring diagram to create the circuit. (Video for details)
+Follow the wiring diagram to create the circuit. [Video for details](https://youtu.be/LYbvFizmgOc?si=nMbl5dTbhvIPqXga&t=812)
 <img src="../../Images/circuit.png" alt="circuit" width="500">
-A USB-C extension with a button is recommended to interrupt power, allowing Arduino to be powered and reprogrammed even after assembly. (Video for details)
-Many portable batteries stop charging if the load is too low, so a resistor in parallel to Arduino is added to enable power from portable batteries. There are more efficient solutions, but this is the simplest and most practical. (Video for details)
+A USB-C extension with a button is recommended to interrupt power, allowing Arduino to be powered and reprogrammed even after assembly. [Video for details](https://youtu.be/LYbvFizmgOc?si=zW4mFCezqnHYHnvz&t=1474)
+Many portable batteries stop charging if the load is too low, so a resistor in parallel to Arduino is added to enable power from portable batteries. There are more efficient solutions, but this is the simplest and most practical. [Video for details](https://youtu.be/LYbvFizmgOc?si=GJT893XRXDBKK_TV&t=1539)
 
 ### Circuit without LCD Display, Potentiometer, and Button ⚡👀
 Use the `NoDisplay.ino` code with this wiring diagram.
@@ -105,7 +106,7 @@ Use the `NoDisplay.ino` code with this wiring diagram.
 This was my first experience designing and printing an enclosure for a circuit, and there is certainly room for more compactness and optimization.
 [This enclosure](../../3dFiles/) is designed for the complete version of the circuit.
 Print the 3D file, choose points for drilling holes for the button, input USB-C port, and GBA connector.
-Assemble the circuit in the enclosure. (Video for details)
+Assemble the circuit in the enclosure. [Video for details](https://youtu.be/LYbvFizmgOc?si=2Pv3CYcU8y9FNbQ5)
 <img src="../../Images/finalCircuit.png" alt="circuit" width="500">
 There is a section under the cover where a portable battery can be placed. This choice allows the system to be used without a PC or electrical outlet.
 <img src="../../Images/batterySlide.gif" alt="circuit" width="500">
