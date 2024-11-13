@@ -3,6 +3,8 @@ Questa guida è fornita a scopo informativo e redatta con la massima cura possib
 
 Seguire questa guida modifica in modo irreversibile la shell.
 
+Si consiglia di seguire il [video](https://www.youtube.com/watch?v=Go9e5wqC74Q) per tutti i dettagli e usare questa guida per riferimenti al codice o per una visione generale del progetto.
+
 # Guida all'utilizzo del sistema 📝
 ## Caricare il codice 🔄
 * Aprire Arduino IDE.
